@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.post('/', function (req, res) {
+app.post(new URL(process.env.BACKEND_URL).pathname, function (req, res) {
   res.send()
   fs.appendFile('email.list', `[${req.body.date}] ${req.body.email}\n`, err => {
     if (err) {
@@ -17,7 +17,7 @@ app.post('/', function (req, res) {
   });
 })
 
-app.get('/', function (req, res) {
+app.get(`${new URL(process.env.BACKEND_URL).pathname}${process.env.SECURE_KEY}/`, function (req, res) {
   res.sendFile('email.list',{root: path.join(__dirname)}, err => {
     if (err) {
       console.error(err);
@@ -25,4 +25,4 @@ app.get('/', function (req, res) {
   })
 })
 
-app.listen(80)
+app.listen(3000)
