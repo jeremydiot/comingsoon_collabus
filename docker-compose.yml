@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  express:
+    container_name: comingsoon_prod_backend
+    image: comingsoon_backend
+    build:
+      context: ./
+      dockerfile: Dockerfile.express
+    ports:
+      - ${BACKEND_PORT}:80
+  nginx:
+    container_name: comingsoon_prod_frontend
+    image: comingsoon_frontend
+    build:
+      context: ./
+      dockerfile: Dockerfile.nginx
+      args:
+        - backend_url=${BACKEND_URL}
+    ports:
+      - ${FRONTEND_PORT}:80
