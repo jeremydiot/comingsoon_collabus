@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.post(new URL(process.env.BACKEND_URL).pathname, function (req, res) {
   res.send()
-  fs.appendFile('email.list', `[${req.body.date}] ${req.body.email}\n`, err => {
+  fs.appendFile('out/email.list', `[${req.body.date}] ${req.body.email}\n`, err => {
     if (err) {
       console.error(err);
     }
@@ -18,7 +18,7 @@ app.post(new URL(process.env.BACKEND_URL).pathname, function (req, res) {
 })
 
 app.get(`${new URL(process.env.BACKEND_URL).pathname}${process.env.SECURE_KEY}/`, function (req, res) {
-  res.sendFile('email.list',{root: path.join(__dirname)}, err => {
+  res.sendFile('out/email.list',{root: path.join(__dirname)}, err => {
     if (err) {
       console.error(err);
     }
