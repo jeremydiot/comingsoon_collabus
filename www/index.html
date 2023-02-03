@@ -47,29 +47,41 @@
 
             <img id="cspio-logo" src="img/full_white.svg">
 
-            <h1 id="cspio-headline">Site en construction ...</h1>
+            <h1 id="cspio-headline" style=" margin-bottom: 70px;">Votre plateforme de collaboration arrive bientôt !
+            </h1>
 
-            <div id="cspio-description">A quelques jours de vous simplifier la vie !</div>
-
-            <form id="cspio-form" onsubmit="onSubmit();return false">
-                <div id="cspio-field-wrapper">
-                    <div class="row">
-                        <div class="col-md-12 seperate">
-                            <div class="input-group">
-                                <input id="cspio-email" name="email" class="form-control input-lg form-el" type="email"
-                                    placeholder="Email" required />
-                                <span class="input-group-btn">
-                                    <button id="cspio-subscribe-btn" type="submit"
-                                        class="btn btn-lg btn-primary form-el noglow">Tenez moi informé</button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+            <div
+                style="display: flex; flex-direction: row; gap: 70px; flex-wrap: wrap; justify-content: center; margin-bottom: 70px;">
+                <div>
+                    <h2 style="white-space: nowrap; margin-top: 0; margin-bottom: 30px;">
+                        Je suis une école
+                    </h2>
+                    <a style="text-decoration: none;" href="media/collabus_plaquette_ecole.pdf">
+                        <button class="cspio-subscribe-btn btn btn-lg form-el noglow"
+                            style="margin-right: 10px;">Télécharger la plaquette</button>
+                    </a>
+                    <a style="text-decoration: none;" href="https://bit.ly/formulaire_collabus">
+                        <button class=" cspio-subscribe-btn btn btn-lg form-el noglow">S'inscrire</button>
+                    </a>
                 </div>
-            </form>
+                <div>
+                    <h2 style="white-space: nowrap; margin-top: 0; margin-bottom: 30px;">
+                        Je suis une entreprise
+                    </h2>
+                    <a style="text-decoration: none;" href="media/collabus_plaquette_entreprise.pdf">
+                        <button class="cspio-subscribe-btn btn btn-lg form-el noglow"
+                            style="margin-right: 10px;">Télécharger la plaquette</button>
+                    </a>
+                    <a style="text-decoration: none;" href="https://bit.ly/formulaire-inscription-entreprise">
+                        <button class="cspio-subscribe-btn btn btn-lg form-el noglow">S'inscrire</button>
+                    </a>
+                </div>
+            </div>
 
-            <div id="cspio-socialprofiles">
-                <a href="mailto:contact@collabus.fr">contact@collabus.fr</a>
+            <div id="cspio-socialprofiles"
+                style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 5px;">
+                <a href="mailto:contact@collabus.fr" style="font-size: 25px;">contact@collabus.fr</a>
+                <a class="linkedin" href="https://www.linkedin.com/company/collabusfr/"><img src="img/linkedin.svg"></a>
             </div>
 
         </div><!-- end of #cspio-content -->
@@ -96,19 +108,19 @@
         );
 
 
-        function onSubmit() {
-            const date = new Date()
-            fetch('%BACKEND_URL%', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ "email": document.querySelector("#cspio-email").value, "date": `${date.toJSON().split('T')[0].replaceAll('-', '/')} ${date.toLocaleTimeString('fr')}` })
-            }).finally(() => {
-                document.querySelector("#cspio-email").value = ""
-            })
-        }
+        // function onSubmit() {
+        //     const date = new Date()
+        //     fetch('%BACKEND_URL%', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({ "email": document.querySelector("#cspio-email").value, "date": `${date.toJSON().split('T')[0].replaceAll('-', '/')} ${date.toLocaleTimeString('fr')}` })
+        //     }).finally(() => {
+        //         document.querySelector("#cspio-email").value = ""
+        //     })
+        // }
 
     </script>
 

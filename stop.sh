@@ -4,5 +4,5 @@ set -a
 source .env
 set +a
 
-docker compose down --volumes --rmi all
+docker compose down -remove-orphans --rmi local --volumes
 docker system prune --force

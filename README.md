@@ -15,9 +15,6 @@ Comming soon page for Collabus
 ```bash
 # example of .env file
 FRONTEND_PORT=80
-BACKEND_PORT=3000
-BACKEND_URL=http://localhost:3000/
-SECURE_KEY=QW32Jk369wsFP25kbSdt
 ```
 
 ### Commands

@@ -4,6 +4,5 @@ WORKDIR /usr/share/nginx/html
 ARG backend_url
 
 COPY www .
-RUN sed -i "s,%BACKEND_URL%,${backend_url},g" index.html
 
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
